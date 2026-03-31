@@ -38,10 +38,10 @@ local r = reaper
 -- WINDOW
 -- ──────────────────────────────────────────────
 local WIN_W     = 250
-local WIN_H     = 104
+local WIN_H     = 96
 local WIN_TITLE = "Patch34: Glued Items"
-local WIN_X     = 480
-local WIN_Y     = 650
+local WIN_X     = 280
+local WIN_Y     = 630
 local FONT_SZ   = 14
 local BAR_H     = 6
 
@@ -134,7 +134,7 @@ local function action_set()
   local name = get_visible_name(sel)
   if name == "" then status = "Item has no name"; return end
   remembered_name = name
-  status = "Choose color"
+  status = "Find and/or choose color"
 end
 
 local function action_color()

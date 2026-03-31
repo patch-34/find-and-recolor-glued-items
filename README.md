@@ -3,7 +3,7 @@
 Scripts and tools for REAPER. Useful, weird, and everything in between.
 
 <p align="center">
-  <img src="screenshot/ui.png" alt="Focus Blanket UI" width="400">
+  <img src="screenshot/ui.png" alt="Focus Blanket UI" width="300">
 </p>
 
 Capture an item name, then find, recolor, and auto-color its glued derivatives anywhere in the project. Useful when glued copies have scattered across the timeline and need to be rounded up or visually tagged.

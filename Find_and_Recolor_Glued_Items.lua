@@ -1,30 +1,11 @@
--- Patch34
--- Find and Recolor Glued Items
--- Capture an item name, then find, recolor, and auto-color its glued derivatives across the project.
---
--- https://github.com/patch-34
-
--- @description Patch34: Find and Recolor Glued Items
+-- @description Find and Recolor Glued Items
 -- @version 1.2.0
--- @author Patch34
+-- @author Aleksei Vorobev / Patch34
 -- @license MIT
+-- @link
+--   GitHub repository https://github.com/patch-34/find-and-recolor-glued-items
 -- @about
---   Patch34 script. No js_ReaScriptAPI required.
---
---   HOW IT WORKS:
---   "Set"    — reads the visible name of the selected item
---              (item name if set, otherwise active take name).
---   "Color"  — opens a color picker and paints all glued derivatives.
---              Once a color is assigned, new derivatives are painted
---              automatically on every Glue action.
---   "Find"   — selects all glued derivatives across the project.
---              Active as soon as a name is set, no color required.
---
---   Targets items whose name contains the source name (or its stem)
---   and "glued" — e.g. "MIC2.WAV-glued-01", "MIC2-Glued-001".
---
---   Reset clears the name, color, and auto-color rule.
---
+--   Finds and recolors glued derivatives of a selected item, with automatic coloring while running.
 -- @changelog
 --   1.2.0 — Glued-derivative matching; Find button; undo-event auto-color;
 --             disabled states guide the workflow; slate palette; white
@@ -39,7 +20,7 @@ local r = reaper
 -- ──────────────────────────────────────────────
 local WIN_W     = 250
 local WIN_H     = 96
-local WIN_TITLE = "Patch34: Glued Items"
+local WIN_TITLE = "Glued Items"
 local WIN_X     = 280
 local WIN_Y     = 630
 local FONT_SZ   = 14
@@ -157,7 +138,7 @@ local function action_color()
   r.PreventUIRefresh(-1)
   r.UpdateArrange()
   r.Undo_EndBlock(
-    ("Patch34: Find and Recolor Glued Items — Recolor \"%s\" (%d items)"):format(remembered_name, changed), -1)
+    ("Find and Recolor Glued Items — Recolor \"%s\" (%d items)"):format(remembered_name, changed), -1)
   status = changed == 0
     and "No matches found"
     or  ("Colored %d item%s"):format(changed, changed == 1 and "" or "s")
